@@ -16,7 +16,7 @@ export function generateInitials(firstName, lastName) {
 export function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
-  
+
   const sum = originalPrice / 100 * vatRate;
   const addVAT = originalPrice + sum;
 
@@ -30,7 +30,22 @@ export function addVAT(originalPrice, vatRate) {
 export function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
-  // Add your code here!
+  const sum = originalPrice / 100 * reduction;
+  const salePrace = originalPrice - sum;
+
+  if(Number.isInteger(salePrace)) {
+        return salePrace;
+
+      } else {
+        const format = salePrace.toFixed(2);
+        
+        if(format[format.length - 1 === 0]) {
+          return salePrace;
+          
+        } else {
+          return Number.parseFloat(salePrace.toFixed(2));
+        }
+      }
 }
 
 export function getMiddleCharacter(str) {
