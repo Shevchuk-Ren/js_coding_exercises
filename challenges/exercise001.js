@@ -41,7 +41,7 @@ export function getSalePrice(originalPrice, reduction) {
         
         if(format[format.length - 1 === 0]) {
           return salePrace;
-          
+
         } else {
           return Number.parseFloat(salePrace.toFixed(2));
         }
@@ -50,7 +50,16 @@ export function getSalePrice(originalPrice, reduction) {
 
 export function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
-  // Add your code here!
+  
+  const middle = (str.length - str.length % 2) / 2;
+  if(str.length % 2 === 0) {
+    const result = str.substring(middle - 1, middle + 1)
+    return result;
+
+  } else {
+    const result = str.substring(middle, middle + str.length % 2)
+    return result;
+  }
 }
 
 export function reverseWord(word) {
