@@ -40,4 +40,13 @@ export function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
   
+  let duplicate = [];
+   for (let i = 0; i < arr1.length; i++) {
+      for (let j = 0; j < arr2.length; j++) {
+        if(arr1[i] === arr2[j]) {
+          duplicate.push(arr1[i]);
+        }
+      }
+   }
+   return [...new Set(duplicate)].sort();
 }
