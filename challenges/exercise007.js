@@ -4,6 +4,13 @@
  */
 export const sumDigits = (n) => {
   if (n === undefined) throw new Error("n is required");
+
+  let sum = 0;
+  while (n != 0) {
+    sum += n % 10;
+    n = Math.floor(n / 10);
+  }
+  return sum;
 };
 
 /**
@@ -57,6 +64,24 @@ export const createRange = (start, end, step) => {
 export const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+
+  let arrUsers = [];
+  users.map((user) => {
+
+    let time = 0;
+    
+    user.screenTime.map((t) => {
+      if(t.date === date) {
+        for (var key in t.usage) {
+          time += t.usage[key]
+        }}
+    })
+
+    if(time > 100) {
+       arrUsers.push(user.username);
+    }
+  });
+  return arrUsers;
 };
 
 /**
@@ -71,6 +96,12 @@ export const getScreentimeAlertList = (users, date) => {
  */
 export const hexToRGB = (hexStr) => {
   if (hexStr === undefined) throw new Error("hexStr is required");
+  
+  if (hexStr === undefined) throw new Error("hexStr is required");
+
+  const aRgbHex = hexStr.slice(1).match(/.{1,2}/g);
+  const aRgb = `rgb(${parseInt(aRgbHex[0], 16)},${parseInt(aRgbHex[1], 16)},${parseInt(aRgbHex[2], 16)})`;
+  return aRgb;
 };
 
 /**
