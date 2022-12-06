@@ -52,16 +52,40 @@ export const sumArrays = (arrs) => {
 export const arrShift = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
   
-  
+
 };
 
 export const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
-  // Your code here!
+  let isTrue = false;
+
+  for (const key in haystack) {
+
+    if(typeof haystack[key] === 'string') {
+      const description = haystack[key].toLowerCase();
+      if(description.includes(searchTerm.toLowerCase())) {
+        isTrue = true;
+        break;
+      }
+    }
+  }
+  return isTrue;
 };
 
 export const getWordFrequencies = (str) => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
+  
+  const words = str.replace(/[.]/g, '').split(/\s/);
+  let freqMap = {};
+  
+  words.forEach(function(word) {
+    let countWord = word.toLowerCase().replace(/[^a-zа-яё0-9\s]/gi, '');
+    if (!freqMap[countWord]) {
+      freqMap[countWord] = 0;
+    }
+    freqMap[countWord] += 1;
+  });
+  
+  return freqMap;
 };

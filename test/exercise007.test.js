@@ -3,6 +3,7 @@ import {
     sumDigits,
     getScreentimeAlertList,
     hexToRGB,
+    findWinner
   } from "../challenges/exercise007";
 
   describe("createRange", () => {
@@ -58,5 +59,34 @@ import {
     test("returns the sum of all its digits", () => {
         expect(hexToRGB('#FF1133')).toEqual('rgb(255,17,51)');
         expect(hexToRGB('#FFFFFF')).toEqual('rgb(255,255,255)');
+    });
+  });
+
+  describe("findWinner", () => {
+    test("return X if player X has won, 0 if the player 0 has won, and null if there is currently no winner", () => {
+        const board = [
+            ["X", null, "0"],
+            ["0", "0", "0"],
+            ["X", null, "X"]
+           ]
+        expect(findWinner(board)).toEqual('0');
+        const board2 = [
+            ["0", "0", "X"],
+            ["0", "X", "0"],
+            ["X", null, "0"]
+           ]
+        expect(findWinner(board2)).toEqual('X');
+        const board3 = [
+             ["X", "0", null],
+             ["X", null, "0"],
+             ["X", null, "0"]
+           ]
+        expect(findWinner(board3)).toEqual('X');
+        const board4 = [
+            ["0", "0", null],
+            ["X", null, "0"],
+            ["X", null, "0"]
+          ]
+       expect(findWinner(board4)).toEqual(null);
     });
   });

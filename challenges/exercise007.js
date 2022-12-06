@@ -116,4 +116,34 @@ export const hexToRGB = (hexStr) => {
  */
 export const findWinner = (board) => {
   if (board === undefined) throw new Error("board is required");
+
+  let combs = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+
+const newBoard = board.flat()
+let winner = null;
+
+for (let i = 0; i < combs.length; i++) {
+  if (
+    newBoard[combs[i][0]] == "X" && 
+    newBoard[combs[i][1]] == "X" && 
+    newBoard[combs[i][2]] == "X"
+    ) winner = "X";
+
+  if (
+    newBoard[combs[i][0]] == "0" && 
+    newBoard[combs[i][1]] == "0" && 
+    newBoard[combs[i][2]] == "0"
+    ) winner = "0";
+};
+
+return winner;
 };
