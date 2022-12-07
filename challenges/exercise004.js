@@ -43,8 +43,7 @@ export function getSquareRoots(nums) {
   if (!nums) throw new Error('nums is required');
 
   return nums.map((num) => {
-    const correctNum = Math.sqrt(num).toFixed(2);
-    return Number.parseFloat(correctNum);
+    return Number.parseFloat(Math.sqrt(num).toFixed(2));
   });
 }
 

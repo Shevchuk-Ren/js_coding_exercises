@@ -36,6 +36,6 @@ export function hasMPostCode(person) {
   if (person === undefined) throw new Error('person is required');
 
   return person.address.city === 'Manchester' &&
-  person.address.postCode.startsWith('M') ?
-  true : false;
+         person.address.postCode.startsWith('M') ?
+         true : false;
 }
