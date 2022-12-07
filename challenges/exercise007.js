@@ -3,7 +3,7 @@
  * @param {Number} n
  */
 export const sumDigits = (n) => {
-  if (n === undefined) throw new Error("n is required");
+  if (n === undefined) throw new Error('n is required');
 
   let sum = 0;
   while (n != 0) {
@@ -22,14 +22,14 @@ export const sumDigits = (n) => {
  * @param {Number} step
  */
 export const createRange = (start, end, step) => {
-  if (start === undefined) throw new Error("start is required");
-  if (end === undefined) throw new Error("end is required");
+  if (start === undefined) throw new Error('start is required');
+  if (end === undefined) throw new Error('end is required');
   if (step === undefined) step = 1;
-  let arr = []
-    for (let i = start; i <= end; i+=step) {
-     arr.push(i);
-    }
-    return arr;
+  let arr = [];
+  for (let i = start; i <= end; i += step) {
+    arr.push(i);
+  }
+  return arr;
 };
 
 /**
@@ -62,23 +62,23 @@ export const createRange = (start, end, step) => {
  * @param {Array} users
  */
 export const getScreentimeAlertList = (users, date) => {
-  if (users === undefined) throw new Error("users is required");
-  if (date === undefined) throw new Error("date is required");
+  if (users === undefined) throw new Error('users is required');
+  if (date === undefined) throw new Error('date is required');
 
   let arrUsers = [];
   users.map((user) => {
-
     let time = 0;
-    
-    user.screenTime.map((t) => {
-      if(t.date === date) {
-        for (var key in t.usage) {
-          time += t.usage[key]
-        }}
-    })
 
-    if(time > 100) {
-       arrUsers.push(user.username);
+    user.screenTime.map((t) => {
+      if (t.date === date) {
+        for (var key in t.usage) {
+          time += t.usage[key];
+        }
+      }
+    });
+
+    if (time > 100) {
+      arrUsers.push(user.username);
     }
   });
   return arrUsers;
@@ -95,9 +95,8 @@ export const getScreentimeAlertList = (users, date) => {
  * @param {String} str
  */
 export const hexToRGB = (hexStr) => {
-  if (hexStr === undefined) throw new Error("hexStr is required");
-  
-  if (hexStr === undefined) throw new Error("hexStr is required");
+  if (hexStr === undefined) throw new Error('hexStr is required');
+  if (hexStr === undefined) throw new Error('hexStr is required');
 
   const aRgbHex = hexStr.slice(1).match(/.{1,2}/g);
   const aRgb = `rgb(${parseInt(aRgbHex[0], 16)},${parseInt(aRgbHex[1], 16)},${parseInt(aRgbHex[2], 16)})`;
@@ -115,7 +114,7 @@ export const hexToRGB = (hexStr) => {
  * @param {Array} board
  */
 export const findWinner = (board) => {
-  if (board === undefined) throw new Error("board is required");
+  if (board === undefined) throw new Error('board is required');
 
   let combs = [
     [0, 1, 2],
@@ -128,22 +127,14 @@ export const findWinner = (board) => {
     [2, 4, 6],
   ];
 
-const newBoard = board.flat()
-let winner = null;
+  const newBoard = board.flat();
+  let winner = null;
 
-for (let i = 0; i < combs.length; i++) {
-  if (
-    newBoard[combs[i][0]] == "X" && 
-    newBoard[combs[i][1]] == "X" && 
-    newBoard[combs[i][2]] == "X"
-    ) winner = "X";
+  for (let i = 0; i < combs.length; i++) {
+    if (newBoard[combs[i][0]] == 'X' && newBoard[combs[i][1]] == 'X' && newBoard[combs[i][2]] == 'X') winner = 'X';
 
-  if (
-    newBoard[combs[i][0]] == "0" && 
-    newBoard[combs[i][1]] == "0" && 
-    newBoard[combs[i][2]] == "0"
-    ) winner = "0";
-};
+    if (newBoard[combs[i][0]] == '0' && newBoard[combs[i][1]] == '0' && newBoard[combs[i][2]] == '0') winner = '0';
+  }
 
-return winner;
+  return winner;
 };

@@ -28,7 +28,7 @@ NB For these challenges you may also find the [Solving SquareNums 3 Ways Video](
 Basic Syntax:
 
 ```javascript
-const arr = ["foo", "bar", "baz"];
+const arr = ['foo', 'bar', 'baz'];
 
 for (let i = 0; i < arr.length; i++) {
   // do something with arr[i]
@@ -44,7 +44,7 @@ for (let i = 0; i < arr.length; i++) {
 Basic Syntax:
 
 ```javascript
-const arr = ["foo", "bar", "baz"];
+const arr = ['foo', 'bar', 'baz'];
 
 arr.forEach(function (item) {
   // do something with item
@@ -63,7 +63,7 @@ arr.forEach(function (item) {
 Basic Syntax:
 
 ```javascript
-const arr = ["foo", "bar", "baz"];
+const arr = ['foo', 'bar', 'baz'];
 
 const newArr = arr.map(function (item) {
   // do something with item e.g.
@@ -84,7 +84,7 @@ const newArr = arr.map(function (item) {
 Basic Syntax:
 
 ```javascript
-const arr = ["foo", "bar", "bazzzz"];
+const arr = ['foo', 'bar', 'bazzzz'];
 
 const newArr = arr.filter(function (item) {
   // do something with item e.g.
