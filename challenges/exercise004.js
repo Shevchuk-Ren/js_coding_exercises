@@ -25,7 +25,7 @@ export function getIntegers(nums) {
   for (let i = 0; i < nums.length; i++) {
     if (Number.isInteger(nums[i])) intArr.push(nums[i]);
   }
-  
+
   return intArr;
 }
 

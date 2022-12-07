@@ -9,7 +9,7 @@ export const findNextNumber = (nums, n) => {
       nextNum = nums[i + 1];
       return num;
     }
-  })
+  });
 
   return nextNum;
 };
@@ -19,7 +19,7 @@ export const count1sand0s = (str) => {
 
   let count1s = 0;
   let count0s = 0;
-  
+
   for (let i = 0; i < str.length; i++) {
     str[i] === '1' ? (count1s += 1) : (count0s += 1);
   }
@@ -37,9 +37,9 @@ export const sumArrays = (arrs) => {
 
   return arrs.reduce((acc, item) => {
     const arrSum = item.reduce((a, b) => a + b, 0);
-    
-    return acc += arrSum;
-  }, 0)
+
+    return (acc += arrSum);
+  }, 0);
 };
 
 export const arrShift = (arr) => {
@@ -90,7 +90,7 @@ export const getWordFrequencies = (str) => {
     if (!freqMap[countWord]) {
       freqMap[countWord] = 0;
     }
-    
+
     freqMap[countWord] += 1;
   });
 

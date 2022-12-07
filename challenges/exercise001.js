@@ -30,7 +30,7 @@ export function getSalePrice(originalPrice, reduction) {
   const sum = (originalPrice / 100) * reduction;
   const salePrace = originalPrice - sum;
 
-  return Number.parseFloat(salePrace.toFixed(2))
+  return Number.parseFloat(salePrace.toFixed(2));
 }
 
 export function getMiddleCharacter(str) {
@@ -68,7 +68,7 @@ export function countLinuxUsers(users) {
 
   return users.reduce((acc, user) => {
     if (user.type === 'Linux') {
-      return acc += 1;
+      return (acc += 1);
     }
     return acc;
   }, 0);

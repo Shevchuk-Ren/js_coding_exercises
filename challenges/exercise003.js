@@ -39,7 +39,7 @@ export function checkIngredients(menu, ingredient) {
       isIngridient = true;
     }
   }
-  
+
   return isIngridient;
 }
 
@@ -56,6 +56,6 @@ export function duplicateNumbers(arr1, arr2) {
       }
     }
   }
-  
+
   return [...new Set(duplicate)].sort();
 }
