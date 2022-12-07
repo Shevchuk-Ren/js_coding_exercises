@@ -3,7 +3,8 @@ import {
     sumMultiples,
     isValidDNA,
     getComplementaryDNA,
-    isItPrime
+    isItPrime,
+    createMatrix
   } from "../challenges/exercise006";
 
   describe("areWeCovered", () => {
@@ -58,5 +59,23 @@ import {
       expect(isItPrime(11)).toBe(true);
       expect(isItPrime(15)).toBe(false);
       expect(isItPrime(-1)).toBe(true);
+    })
+  });
+
+  describe("createMatrix", () => {
+    test("Returns an array of n arrays, each filled with n items. The parameter fill should be used as the filler of the arrays.", () => {
+        
+      expect(createMatrix(3, "foo")).toEqual(
+        [
+          ["foo", "foo", "foo"],
+          ["foo", "foo", "foo"],
+          ["foo", "foo", "foo"]
+        ]
+      );
+      expect(createMatrix(1, "cat")).toEqual(
+        [
+           ["cat"],
+        ]
+      );
     })
   });
