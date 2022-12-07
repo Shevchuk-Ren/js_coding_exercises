@@ -6,6 +6,22 @@
  */
 export const sumMultiples = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
+
+  const initialValue = 0;
+  
+  const sumWithInitial = arr.reduce(
+  (accumulator, currentValue) => {
+
+    if(currentValue % 3 === 0 || currentValue % 5 === 0) {
+     return accumulator + currentValue
+    }
+
+    return accumulator;
+  },
+  initialValue
+  );
+
+  return sumWithInitial;
 };
 
 /**
@@ -15,6 +31,18 @@ export const sumMultiples = (arr) => {
  */
 export const isValidDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
+  
+  if(str.length !== 4) return false;
+  
+  const pairs = 'A, C, T, G'
+  let dna = [];
+  
+  for (let i = 0; i < str.length; i++) {
+    if(pairs.includes(str[i])) dna.push(str[i]);
+  }
+  
+  return new Set(dna).size === str.length ? true : false;
+
 };
 
 /**
