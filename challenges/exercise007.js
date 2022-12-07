@@ -24,8 +24,11 @@ export const sumDigits = (n) => {
 export const createRange = (start, end, step) => {
   if (start === undefined) throw new Error('start is required');
   if (end === undefined) throw new Error('end is required');
+  
   if (step === undefined) step = 1;
+
   let arr = [];
+
   for (let i = start; i <= end; i += step) {
     arr.push(i);
   }
@@ -66,12 +69,13 @@ export const getScreentimeAlertList = (users, date) => {
   if (date === undefined) throw new Error('date is required');
 
   let arrUsers = [];
+
   users.map((user) => {
     let time = 0;
 
     user.screenTime.map((t) => {
       if (t.date === date) {
-        for (var key in t.usage) {
+        for (let key in t.usage) {
           time += t.usage[key];
         }
       }
@@ -81,6 +85,7 @@ export const getScreentimeAlertList = (users, date) => {
       arrUsers.push(user.username);
     }
   });
+
   return arrUsers;
 };
 

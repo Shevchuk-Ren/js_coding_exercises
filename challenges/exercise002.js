@@ -13,15 +13,7 @@ export function isFromManchester(person) {
 export function getBusNumbers(people) {
   if (people === undefined) throw new Error('people is required');
 
-  const peopleOnBus = people / 40;
-  const fullBuses = peopleOnBus.toString().split('.')[0];
-  const emptySeats = peopleOnBus.toString().split('.')[1];
-
-  if (Number.parseInt(emptySeats) > 0) {
-    return Number.parseInt(fullBuses) + 1;
-  } else {
-    return Number.parseInt(fullBuses);
-  }
+  return Math.ceil(people / 40);
 }
 
 export function countSheep(arr) {
