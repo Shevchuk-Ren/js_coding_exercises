@@ -4,6 +4,7 @@ export function printColours(colours) {
   if (!colours) throw new Error('colour is required');
 
   console.log(...colours);
+
   return colours;
 }
 

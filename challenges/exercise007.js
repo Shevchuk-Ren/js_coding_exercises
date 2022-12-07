@@ -128,12 +128,12 @@ export const findWinner = (board) => {
   ];
 
   const newBoard = board.flat();
-  
-  return combs.reduce((acc, comb) => {
-    if (newBoard[comb[0]] == 'X' && newBoard[comb[1]] == 'X' && newBoard[comb[2]] == 'X') return acc = 'X';
 
-    if (newBoard[comb[0]] == '0' && newBoard[comb[1]] == '0' && newBoard[comb[2]] == '0') return acc = '0';
-    
+  return combs.reduce((acc, comb) => {
+    if (newBoard[comb[0]] == 'X' && newBoard[comb[1]] == 'X' && newBoard[comb[2]] == 'X') return (acc = 'X');
+
+    if (newBoard[comb[0]] == '0' && newBoard[comb[1]] == '0' && newBoard[comb[2]] == '0') return (acc = '0');
+
     return acc;
-  }, null)
+  }, null);
 };
