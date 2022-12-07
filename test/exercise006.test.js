@@ -2,6 +2,8 @@ import {
     areWeCovered,
     sumMultiples,
     isValidDNA,
+    getComplementaryDNA,
+    isItPrime
   } from "../challenges/exercise006";
 
   describe("areWeCovered", () => {
@@ -30,13 +32,31 @@ import {
   describe("isValidDNA", () => {
     test("returns true/false depending on whether it is a valid DNA string. A valid DNA string may contain characters C, G, T or A only", () => {
         
-      expect(isValidDNA('ACTG')).toBe(true);
-      expect(isValidDNA('ASRF')).toBe(false);
-      expect(isValidDNA('CAAT')).toBe(false);
+      expect(isValidDNA("ACTG")).toBe(true);
+      expect(isValidDNA("ASRF")).toBe(false);
+      expect(isValidDNA("CAAT")).toBe(false);
     })
 
     test("returns a false if string less or more than 4 characters", () => {
         expect(isValidDNA('ACCTG')).toBe(false);
         expect(isValidDNA('A')).toBe(false);
     });
+  });
+
+  describe("getComplementaryDNA", () => {
+    test("Returns a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G.", () => {
+        
+      expect(getComplementaryDNA("ACTG")).toEqual("TGAC");
+      expect(getComplementaryDNA("CATG")).toEqual("GTAC");
+    })
+  });
+
+  describe("isItPrime", () => {
+    test("Returns true/false depending on whether it is a prime number or not. A prime number is a number that can only be divided evenly by 1 and itself.", () => {
+        
+      expect(isItPrime(7)).toBe(true);
+      expect(isItPrime(11)).toBe(true);
+      expect(isItPrime(15)).toBe(false);
+      expect(isItPrime(-1)).toBe(true);
+    })
   });
