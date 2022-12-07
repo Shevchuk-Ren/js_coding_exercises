@@ -99,8 +99,8 @@ export const hexToRGB = (hexStr) => {
   if (hexStr === undefined) throw new Error('hexStr is required');
 
   const aRgbHex = hexStr.slice(1).match(/.{1,2}/g);
-  const aRgb = `rgb(${parseInt(aRgbHex[0], 16)},${parseInt(aRgbHex[1], 16)},${parseInt(aRgbHex[2], 16)})`;
-  return aRgb;
+
+  return `rgb(${parseInt(aRgbHex[0], 16)},${parseInt(aRgbHex[1], 16)},${parseInt(aRgbHex[2], 16)})`;
 };
 
 /**
@@ -128,13 +128,12 @@ export const findWinner = (board) => {
   ];
 
   const newBoard = board.flat();
-  let winner = null;
+  
+  return combs.reduce((acc, comb) => {
+    if (newBoard[comb[0]] == 'X' && newBoard[comb[1]] == 'X' && newBoard[comb[2]] == 'X') return acc = 'X';
 
-  for (let i = 0; i < combs.length; i++) {
-    if (newBoard[combs[i][0]] == 'X' && newBoard[combs[i][1]] == 'X' && newBoard[combs[i][2]] == 'X') winner = 'X';
-
-    if (newBoard[combs[i][0]] == '0' && newBoard[combs[i][1]] == '0' && newBoard[combs[i][2]] == '0') winner = '0';
-  }
-
-  return winner;
+    if (newBoard[comb[0]] == '0' && newBoard[comb[1]] == '0' && newBoard[comb[2]] == '0') return acc = '0';
+    
+    return acc;
+  }, null)
 };
