@@ -3,12 +3,14 @@ export const findNextNumber = (nums, n) => {
   if (n === undefined) throw new Error('n is required');
 
   let nextNum = null;
-  for (let i = 0; i < nums.length; i++) {
+
+  nums.find((num, i) => {
     if (nums[i] === n && nums.length - 1 !== i) {
       nextNum = nums[i + 1];
-      break;
+      return num;
     }
-  }
+  })
+
   return nextNum;
 };
 
@@ -17,6 +19,7 @@ export const count1sand0s = (str) => {
 
   let count1s = 0;
   let count0s = 0;
+  
   for (let i = 0; i < str.length; i++) {
     str[i] === '1' ? (count1s += 1) : (count0s += 1);
   }
@@ -32,12 +35,11 @@ export const reverseNumber = (n) => {
 export const sumArrays = (arrs) => {
   if (arrs === undefined) throw new Error('arrs is required');
 
-  let totalSum = 0;
-  for (let i = 0; i < arrs.length; i++) {
-    const arrSum = arrs[i].reduce((a, b) => a + b, 0);
-    totalSum += arrSum;
-  }
-  return totalSum;
+  return arrs.reduce((acc, item) => {
+    const arrSum = item.reduce((a, b) => a + b, 0);
+    
+    return acc += arrSum;
+  }, 0)
 };
 
 export const arrShift = (arr) => {
@@ -47,8 +49,10 @@ export const arrShift = (arr) => {
     let result = arr;
     let firstCount = arr[0];
     let lastCount = arr[arr.length - 1];
+
     result[result.length - 1] = firstCount;
     result[0] = lastCount;
+
     return result;
   } else {
     return arr;
@@ -58,6 +62,7 @@ export const arrShift = (arr) => {
 export const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error('haystack is required');
   if (searchTerm === undefined) throw new Error('searchTerm is required');
+
   let isTrue = false;
 
   for (const key in haystack) {
@@ -69,6 +74,7 @@ export const findNeedle = (haystack, searchTerm) => {
       }
     }
   }
+
   return isTrue;
 };
 
@@ -80,9 +86,11 @@ export const getWordFrequencies = (str) => {
 
   words.forEach(function (word) {
     let countWord = word.toLowerCase().replace(/[^a-zа-яё0-9\s]/gi, '');
+
     if (!freqMap[countWord]) {
       freqMap[countWord] = 0;
     }
+    
     freqMap[countWord] += 1;
   });
 
