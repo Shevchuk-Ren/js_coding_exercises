@@ -54,24 +54,13 @@ export function reverseWord(word) {
 export function reverseAllWords(words) {
   if (words === undefined) throw new Error('words is required');
 
-  let arrayWords = [];
-
-  for (let i = 0; i < words.length; i++) {
-    arrayWords.push(reverseWord(words[i]));
-  }
-
-  return arrayWords;
+  return words.map((word) => reverseWord(word));
 }
 
 export function countLinuxUsers(users) {
   if (users === undefined) throw new Error('users is required');
 
-  return users.reduce((acc, user) => {
-    if (user.type === 'Linux') {
-      return (acc += 1);
-    }
-    return acc;
-  }, 0);
+  return users.filter((user) => user.type === 'Linux').length;
 }
 
 export function getMeanScore(scores) {
